@@ -1,0 +1,26 @@
+<!doctype html>
+<html xlmns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fragments</title>
+
+    <header th:fragment="header">
+      <nav class="row fs-3 align-items-start border-bottom border-2">
+        <div class="col-3 p-4 text-center">Best of</div>
+        <div class="col-8 p-4 border-start border-2">
+          <button class="btn btn-light fs-3 px-5">Movies</button>
+          <button class="mx-3 btn btn-light fs-3 px-5">Songs</button>
+        </div>
+      </nav>
+    </header>
+
+    <th:block th:fragment="styles">
+      <link
+        th:href="@{/webjars/bootstrap/5.3.5/css/bootstrap.min.css}"
+        th:rel="stylesheet"
+      />
+    </th:block>
+  </head>
+  <body></body>
+</html>

@@ -1,26 +1,15 @@
 <!doctype html>
 <html xlmns:th="http://www.thymeleaf.org">
   <head>
-    <link
-      th:href="@{/webjars/bootstrap/5.3.5/css/bootstrap.min.css}"
-      th:rel="stylesheet"
-    />
+    <title>Home</title>
 
-    <title>Yes</title>
+    <th:block th:replace="~{fragments :: styles}"></th:block>
   </head>
   <body>
-    <header class="">
-      <nav class="row fs-3 align-items-start border-bottom border-2">
-        <div class="col-3 p-4 text-center">Best of</div>
-        <div class="col-8 p-4 border-start border-2">
-          <button class="btn btn-light fs-3 px-5">Movies</button>
-          <button class="mx-3 btn btn-light fs-3 px-5">Songs</button>
-        </div>
-      </nav>
-    </header>
+    <header th:replace="~{fragments :: header}"></header>
     <div>
       <main class="text-center">
-        <h1 class="mt-5" th:text="'Best of the year by '  + ${name}" />
+        <h1 class="mt-5" th:text="'Best of  by '  + ${name}" />
       </main>
     </div>
   </body>
