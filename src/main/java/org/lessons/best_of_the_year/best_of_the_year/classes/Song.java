@@ -1,6 +1,8 @@
 package org.lessons.best_of_the_year.best_of_the_year.classes;
 
-public class Song {
+import java.io.Serializable;
+
+public class Song implements Serializable {
     private int id;
     private String title;
 
@@ -9,7 +11,7 @@ public class Song {
         this.title = title;
     }
 
-    public int getId() {
+    public  int getId() {
         return id;
     }
 

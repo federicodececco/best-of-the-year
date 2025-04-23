@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
 @Controller
 @RequestMapping("/")
 public class HomeController {
@@ -72,13 +71,15 @@ public class HomeController {
 
     @GetMapping("/songs")
     public String songIndex(Model model) {
-        String songs = "";
-        for (Song i : getSongs()) {
-            songs += i.getTitle();
-            songs += ", ";
-        }
+        // String songs = "";
+        // for (Song i : getSongs()) {
+        // songs += i.getTitle();
+        // songs += ", ";
+        // }
 
-        model.addAttribute("songs", songs);
+        // model.addAttribute("songs", songs);
+
+        model.addAttribute("songs", getSongs());
 
         return "songs";
     }
