@@ -8,17 +8,37 @@
     <!-- <header th:replace="~{fragments :: styles}"></header> -->
     <header th:fragment="header">
       <nav class="row fs-3 align-items-start border-bottom border-2">
-        <div class="col-3 p-4 text-center">Best of</div>
+        <div class="col-3 p-4 text-center">
+          <a class="text-decoration-none text-black" th:href="@{/}">Best of</a>
+        </div>
         <div class="col-8 p-4 border-start border-2">
           <button class="btn btn-light fs-3 px-5 border border-black">
-           <a th:href="@{/movies}">Movies</a> 
+            <a class="text-decoration-none text-black" th:href="@{/movies}"
+              >Movies</a
+            >
           </button>
-          <button class="mx-3 btn btn-light fs-3 px-5 border border-black" >
-            <a th:href="@{/songs}">Songs</a>
+          <button class="mx-3 btn btn-light fs-3 px-5 border border-black">
+            <a class="text-decoration-none text-black" th:href="@{/songs}"
+              >Songs</a
+            >
           </button>
         </div>
       </nav>
     </header>
+    <!-- !detail item -->
+    <th:block th:fragment="detail">
+      <div class="text-center container">
+        <div
+          class="mt-5 bg-warning border border-warning py-4"
+          style="--bs-bg-opacity: 0.3"
+        >
+          <h1>image</h1>
+        </div>
+        <div class="border border-black py-5">
+          <th:block th:object="${item}"> <h3>[[*{title}]]</h3></th:block>
+        </div>
+      </div>
+    </th:block>
     <!--! bootstrap -->
     <!-- <th:block th:replace="~{fragments :: styles}"></th:block> -->
     <th:block th:fragment="styles">

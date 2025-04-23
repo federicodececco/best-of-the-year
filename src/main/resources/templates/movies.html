@@ -5,10 +5,24 @@
     <th:block th:replace="~{fragments :: styles}"></th:block>
   </head>
   <body>
-    <header th:replace="~{fragments :: styles}"></header>
-    <div>
-      <h1>Best Movies:</h1>
-      <h1 th:text="${movies}" />
+    <header th:replace="~{fragments :: header}"></header>
+    <div class="text-center container">
+      <h1 class="mt-5">Best Songs:</h1>
+      <div class="mt-4 row justify-content-center">
+        <th:block th:each="movie : ${movies}">
+          <th:block th:object="${movie}">
+            <div class="border border-black py-2 col-9">
+              <h2>
+                <a
+                  class="text-decoration-none text-black"
+                  th:href="@{/movies/{id}(id=*{id})}"
+                  >[[*{title}]]</a
+                >
+              </h2>
+            </div></th:block
+          ></th:block
+        >
+      </div>
     </div>
   </body>
 </html>

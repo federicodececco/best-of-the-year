@@ -60,12 +60,15 @@ public class HomeController {
 
     @GetMapping("/movies")
     public String movieIndex(Model model) {
-        String movies = "";
-        for (Movie i : getMovies()) {
-            movies += i.getTitle();
-            movies += ", ";
-        }
-        model.addAttribute("movies", movies);
+        // String movies = "";
+        // for (Movie i : getMovies()) {
+        //     movies += i.getTitle();
+        //     movies += ", ";
+        // }
+        // model.addAttribute("movies", movies);
+        // return "movies";
+        model.addAttribute("movies", getMovies());
+
         return "movies";
     }
 
@@ -91,7 +94,7 @@ public class HomeController {
             int id = Integer.valueOf(stringId);
 
             Song song = getSongs().get(id);
-            model.addAttribute("song", song);
+            model.addAttribute("item", song);
 
         } catch (NumberFormatException e) {
             System.out.println("Input not valid");
@@ -99,7 +102,7 @@ public class HomeController {
             System.out.print("item not found");
         }
 
-        return "songsDetail";
+        return "detail";
     }
 
     @GetMapping("/movies/{id}")
@@ -108,14 +111,16 @@ public class HomeController {
         try {
             int id = Integer.valueOf(stringId);
 
-            String movie = getMovies().get(id).getTitle();
-            model.addAttribute("movies", movie);
+            Movie movie = getMovies().get(id);
+            model.addAttribute("item", movie);
 
         } catch (NumberFormatException e) {
             System.out.println("Input not valid");
+        }catch(IndexOutOfBoundsException e){
+            System.out.print("item not found");
         }
 
-        return "movies";
+        return "detail";
     }
 
 }

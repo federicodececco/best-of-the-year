@@ -12,7 +12,7 @@
         <th:block th:each="song : ${songs}">
           <th:block th:object="${song}">
             <div class="border border-black  py-2 col-9">
-              <h2><a th:href="@{/songs/{id}(id=*{id})}">[[*{title}]]</a></h2>
+              <h2><a class="text-decoration-none text-black" th:href="@{/songs/{id}(id=*{id})}">[[*{title}]]</a></h2>
             </div></th:block
           ></th:block
         >
