@@ -10,8 +10,12 @@
       <nav class="row fs-3 align-items-start border-bottom border-2">
         <div class="col-3 p-4 text-center">Best of</div>
         <div class="col-8 p-4 border-start border-2">
-          <button class="btn btn-light fs-3 px-5">Movies</button>
-          <button class="mx-3 btn btn-light fs-3 px-5">Songs</button>
+          <button class="btn btn-light fs-3 px-5 border border-black">
+           <a th:href="@{/movies}">Movies</a> 
+          </button>
+          <button class="mx-3 btn btn-light fs-3 px-5 border border-black" >
+            <a th:href="@{/songs}">Songs</a>
+          </button>
         </div>
       </nav>
     </header>

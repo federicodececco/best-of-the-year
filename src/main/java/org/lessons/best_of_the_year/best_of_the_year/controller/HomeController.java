@@ -85,23 +85,25 @@ public class HomeController {
     }
 
     @GetMapping("/songs/{id}")
-    public String movieShow(Model model, @PathVariable("id") String stringId) {
+    public String shongShow(Model model, @PathVariable("id") String stringId) {
 
         try {
             int id = Integer.valueOf(stringId);
 
-            String song = getSongs().get(id).getTitle();
-            model.addAttribute("songs", song);
+            Song song = getSongs().get(id);
+            model.addAttribute("song", song);
 
         } catch (NumberFormatException e) {
             System.out.println("Input not valid");
+        }catch(IndexOutOfBoundsException e){
+            System.out.print("item not found");
         }
 
-        return "songs";
+        return "songsDetail";
     }
 
     @GetMapping("/movies/{id}")
-    public String songShow(Model model, @PathVariable("id") String stringId) {
+    public String movieShow(Model model, @PathVariable("id") String stringId) {
 
         try {
             int id = Integer.valueOf(stringId);
